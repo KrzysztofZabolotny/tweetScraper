@@ -1,0 +1,4 @@
+Docker build:
+    docker build -t twintdocker:latest .
+Docker run:
+    docker run -d --name twintdocker -p 8080:8087 twintdocker

@@ -8,6 +8,5 @@ public interface ITweetService {
 
     void saveTweet(Tweet tweet);
     List<Tweet> findAll();
-    List<Tweet> scrapeTweets(String hashtag, int size);
     void saveAll(List<Tweet> tweets);
 }
