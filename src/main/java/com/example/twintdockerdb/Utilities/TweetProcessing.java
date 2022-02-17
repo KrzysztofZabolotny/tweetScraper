@@ -4,7 +4,7 @@ import com.example.twintdockerdb.Models.Tweet;
 
 public class TweetProcessing {
 
-    public static Tweet tweetFromLine(String line) {
+    public static Tweet tweetFromLine(String line, String hashtag) {
         String[] arr = line.split(" ");
         if (line.equals("[!] No more data! Scraping will stop now.") || line.equals("found 0 deleted tweets in this search."))
             return null;
@@ -20,7 +20,7 @@ public class TweetProcessing {
         Tweet tweet;
         try {
             if (arr[5].length() < 255) {
-                tweet = new Tweet(arr[0],
+                tweet = new Tweet(hashtag,arr[0],
                         arr[1],
                         arr[2],
                         arr[3],

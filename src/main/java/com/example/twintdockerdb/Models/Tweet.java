@@ -11,6 +11,7 @@ public class Tweet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    String searchedByHashtag;
     String internalTweetId;
     String postDate;
     String postTime;
@@ -19,16 +20,32 @@ public class Tweet {
     String content;
 
     public Tweet() {
-
     }
 
-    public Tweet(String internalTweetId, String postDate, String postTime, String timeZone, String username, String content) {
+    public Tweet(String searchedByHashtag, String internalTweetId, String postDate, String postTime, String timeZone, String username, String content) {
+        this.searchedByHashtag = searchedByHashtag;
         this.internalTweetId = internalTweetId;
         this.postDate = postDate;
         this.postTime = postTime;
         this.timeZone = timeZone;
         this.username = username;
         this.content = content;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSearchedByHashtag() {
+        return searchedByHashtag;
+    }
+
+    public void setSearchedByHashtag(String searchedByHashtag) {
+        this.searchedByHashtag = searchedByHashtag;
     }
 
     public String getInternalTweetId() {

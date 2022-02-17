@@ -12,4 +12,8 @@ RUN apt-get update && \
     apt-get clean
 MAINTAINER krzysztof.com
 COPY target/TwintDockerDb-0.0.1-SNAPSHOT.jar TwintDockerDb-0.0.1-SNAPSHOT.jar
+# should resolve UTF-8 character encoding
+# RUN apt-get install -y locales
+# RUN locale-gen en_US.UTF-8
+# RUN export LANG=en_US
 ENTRYPOINT ["java","-jar","/TwintDockerDb-0.0.1-SNAPSHOT.jar"]
