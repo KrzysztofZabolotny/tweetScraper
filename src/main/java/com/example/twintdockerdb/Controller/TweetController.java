@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.twintdockerdb.Utilities.TweetProcessing.tweetFromLine;
@@ -48,6 +49,19 @@ public class TweetController {
 
         return service.findAll();
     }
+
+    @GetMapping("/save")
+    public void save(){
+
+        List<Tweet> tweets = new ArrayList<>();
+
+        tweets.add(new Tweet("1","2","3","4","5","6"));
+        tweets.add(new Tweet("1","2","3","4","5","6"));
+        tweets.add(new Tweet("1","2","3","4","5","6"));
+        tweets.add(new Tweet("1","2","3","4","5","6"));
+
+        service.saveAll(tweets);
+        }
 
 
 }
