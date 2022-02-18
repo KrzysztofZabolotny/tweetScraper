@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController("/tweets")
 public class TweetController {
 
     private final ITweetService service;
@@ -25,9 +25,8 @@ public class TweetController {
     @GetMapping("/scrape/{hashtag}/{quantity}")
     public String scrapeTweets(@PathVariable String hashtag, @PathVariable int quantity) {
 
-        List<Tweet> tweets = twintService.scrapeTweet(hashtag, quantity);
-        service.saveAll(tweets);
-        return "Scraped: " +tweets.size() + " tweets with " + hashtag + " hashtag";
+        int scrapedQuantity = twintService.scrapeTweet(hashtag, quantity);
+        return "Scraped: " + scrapedQuantity + " tweets with " + hashtag + " hashtag";
     }
 
     @GetMapping("/allTweets")

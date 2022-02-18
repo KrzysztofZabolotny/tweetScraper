@@ -1,0 +1,2 @@
+1.Enable more than 255 characters in a string for database
+2.Streamline tweet scraping
