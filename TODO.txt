@@ -1,2 +1,3 @@
 1.Enable more than 255 characters in a string for database
-2.Streamline tweet scraping
+2.Streamline tweet scraping                                 OK
+3.Change H2 database to MySQL
