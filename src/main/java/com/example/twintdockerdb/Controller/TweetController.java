@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/tweets")
+@RestController()
 public class TweetController {
 
     private final ITweetService service;
@@ -33,5 +33,11 @@ public class TweetController {
     List<Tweet> getAllTweetsFromDatabase() {
 
         return service.findAll();
+    }
+
+    @GetMapping("/test")
+    String test() {
+
+        return "test";
     }
 }
