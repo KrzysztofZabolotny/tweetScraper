@@ -19,7 +19,7 @@ public class TweetProcessing {
         }
         Tweet tweet;
         try {
-            if (arr[5].length() < 255) {
+
                 tweet = new Tweet(hashtag,arr[0],
                         arr[1],
                         arr[2],
@@ -27,7 +27,7 @@ public class TweetProcessing {
                         arr[4],
                         arr[5]);
                 return tweet;
-            }
+
 
         } catch (Exception e) {
             e.printStackTrace();

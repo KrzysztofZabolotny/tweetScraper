@@ -1,3 +1,8 @@
-1.Enable more than 255 characters in a string for database
+1.Enable more than 255 characters in a string for database  OK
 2.Streamline tweet scraping                                 OK
-3.Change H2 database to MySQL
+3.Change H2 database to MySQL                               OK
+4.Create parallel sentiment analysis
+5.Create microservice
+    a) microservice for scraping
+    b) microservice for sentiment analysis
+    c) microservice for View

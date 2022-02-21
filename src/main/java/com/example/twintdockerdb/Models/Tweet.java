@@ -1,9 +1,6 @@
 package com.example.twintdockerdb.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Tweet {
@@ -17,6 +14,7 @@ public class Tweet {
     String postTime;
     String timeZone;
     String username;
+    @Column(columnDefinition ="varchar(500)")
     String content;
 
     public Tweet() {
