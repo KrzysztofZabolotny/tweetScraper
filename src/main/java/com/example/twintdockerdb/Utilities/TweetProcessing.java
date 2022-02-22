@@ -28,7 +28,6 @@ public class TweetProcessing {
                         arr[5]);
                 return tweet;
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
