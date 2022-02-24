@@ -37,7 +37,21 @@ public class TweetController {
 
     @GetMapping("/test")
     String test() {
-
         return "test";
+    }
+
+    @GetMapping("/scrapeAll/{hashtag}/{quantity}")
+    public boolean scrapeAllTweets(@PathVariable String hashtag, @PathVariable int quantity) {
+
+        boolean done = false;
+        int cycles = 0;
+
+        while (!done) {
+            int result = twintService.scrapeTweet(hashtag, quantity);
+            if (result >= quantity) done = true;
+            cycles++;
+            System.out.println(cycles);
+        }
+        return done;
     }
 }
