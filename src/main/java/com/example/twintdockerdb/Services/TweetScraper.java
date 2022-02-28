@@ -6,43 +6,45 @@ import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.example.twintdockerdb.Utilities.TweetProcessing.tweetFromLine;
 
 @Service
-public class TwintToolboxService {
+public class TweetScraper implements Runnable{
 
     private final ITweetService service;
+    String hashtag;
+    int quantity;
 
-    public TwintToolboxService(ITweetService service) {
+
+    public TweetScraper(ITweetService service) {
         this.service = service;
     }
 
-
-    public int scrapeTweet(String hashtag, int quantity){
-
+    @Override
+    public void run() {
         String command = "twint -s " + hashtag;
         int counter = 0;
         try {
             Process process = Runtime.getRuntime().exec(command);
-
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-
             String line;
             while ((line = reader.readLine()) != null) {
                 counter++;
                 Tweet tweet = tweetFromLine(line, hashtag);
-                if(tweet!=null) service.saveTweet(tweet);
+                if (tweet != null) service.saveTweet(tweet);
                 if (counter == quantity) break;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-        return counter;
+
+    public void setHashtag(String hashtag) {
+        this.hashtag = hashtag;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
-
-
