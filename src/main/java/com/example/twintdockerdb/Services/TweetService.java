@@ -23,7 +23,7 @@ public class TweetService implements ITweetService {
     @Override
     public void saveTweet(Tweet tweet) {
 
-        if(tweet!=null)repository.save(tweet);
+        if (tweet != null) repository.save(tweet);
     }
 
     @Override

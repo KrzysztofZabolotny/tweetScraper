@@ -1,4 +1,4 @@
-package com.example.twintdockerdb.Controller;
+package com.example.twintdockerdb.Controller.api;
 
 import com.example.twintdockerdb.Interface.ITweetService;
 import com.example.twintdockerdb.Models.Tweet;
@@ -23,21 +23,21 @@ public class SentimentController {
     }
 
     @GetMapping("/analysis/{line}")
-    String getSentimentFromLine(@PathVariable String line){
+    String getSentimentFromLine(@PathVariable String line) {
         return sentimentAnalyzer.getSentiment(line);
 
     }
 
     @GetMapping("/analysis/allTweets")
-    List<String> getAnalysisOfAllTweets(){
+    List<String> getAnalysisOfAllTweets() {
 
         List<Tweet> tweets = service.findAll();
         List<String> analysis = new ArrayList<>();
-        for(Tweet t: tweets){
+        for (Tweet t : tweets) {
 
             analysis.add(
                     sentimentAnalyzer.getSentiment(t.getContent())
-                    + " " + t.getContent()
+                            + " " + t.getContent()
             );
         }
 

@@ -3,8 +3,6 @@ package com.example.twintdockerdb.Models;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -32,8 +30,8 @@ public class User {
     }
 
     public User(String username, String password) {
-     this.username = username;
-     this.password = password;
+        this.username = username;
+        this.password = password;
     }
 
     public Long getId() {
@@ -55,6 +53,7 @@ public class User {
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -71,12 +70,12 @@ public class User {
         this.role = role;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
     public boolean isActive() {
         return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public String getName() {

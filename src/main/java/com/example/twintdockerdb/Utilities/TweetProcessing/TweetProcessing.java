@@ -1,4 +1,4 @@
-package com.example.twintdockerdb.Utilities;
+package com.example.twintdockerdb.Utilities.TweetProcessing;
 
 import com.example.twintdockerdb.Models.Tweet;
 
@@ -20,13 +20,13 @@ public class TweetProcessing {
         Tweet tweet;
         try {
 
-                tweet = new Tweet(hashtag,arr[0],
-                        arr[1],
-                        arr[2],
-                        arr[3],
-                        arr[4],
-                        arr[5]);
-                return tweet;
+            tweet = new Tweet(hashtag, arr[0],
+                    arr[1],
+                    arr[2],
+                    arr[3],
+                    arr[4],
+                    arr[5]);
+            return tweet;
 
         } catch (Exception e) {
             e.printStackTrace();

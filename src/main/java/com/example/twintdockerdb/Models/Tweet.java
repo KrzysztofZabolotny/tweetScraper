@@ -14,7 +14,7 @@ public class Tweet {
     String postTime;
     String timeZone;
     String username;
-    @Column(columnDefinition ="varchar(500)")
+    @Column(columnDefinition = "varchar(500)")
     String content;
 
     public Tweet() {

@@ -6,17 +6,17 @@ import java.util.Properties;
 
 public class Pipeline {
 
-    private static Properties properties;
-    private static String propertiesName = "tokenize, ssplit, pos, parse, sentiment";
+    private static final Properties properties;
+    private static final String propertiesName = "tokenize, ssplit, pos, parse, sentiment";
     private static StanfordCoreNLP stanfordCoreNLP;
-
-    private Pipeline() {
-
-    }
 
     static {
         properties = new Properties();
         properties.setProperty("annotators", propertiesName);
+    }
+
+    private Pipeline() {
+
     }
 
     public static StanfordCoreNLP getPipeline() {
